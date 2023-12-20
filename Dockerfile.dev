@@ -1,0 +1,8 @@
+ARG NODE_VERSION=20.10.0
+FROM node:${NODE_VERSION}-alpine
+WORKDIR /app
+# install app dependencies
+COPY package.json .
+RUN npm install --silent
+COPY . .
+EXPOSE 3000

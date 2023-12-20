@@ -1,0 +1,14 @@
+version: "3.6"
+services:
+  react-web-app:
+    container_name: react-web-app
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    restart: unless-stopped
+    volumes:
+      - ".:/app"
+      - "/app/node_modules"
+    ports:
+      - 3002:3000
+    command: "npm start"
